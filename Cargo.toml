@@ -8,6 +8,6 @@ plonky2 = { git = "https://github.com/MVPWorkshop/plonky2", branch = "testing", 
 starky = { git = "https://github.com/MVPWorkshop/plonky2", branch = "testing", default-features = false }
 thiserror = { version = "2.0.4", default-features = false }
 postcard = { version = "1.1.1", default-features = false, features = ["alloc"] }
-serde_json = { version = "1.0.133", default-features = false, features = [
+serde_json = { version = "1.0.114", default-features = false, features = [
     "alloc",
 ] }
