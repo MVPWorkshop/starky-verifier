@@ -16,11 +16,11 @@ pub enum DeserializeError {
     InvalidPubs,
 }
 
-pub(crate) fn serialize_pubs(pubs: &Vec<GoldilocksField>) -> Vec<u8> {
+pub fn serialize_pubs(pubs: &Vec<GoldilocksField>) -> Vec<u8> {
     postcard::to_allocvec(&pubs).unwrap()
 }
 
-pub(crate) fn serialize_proof<F, C, const D: usize>(proof: &StarkProof<F, C, D>) -> Vec<u8>
+pub fn serialize_proof<F, C, const D: usize>(proof: &StarkProof<F, C, D>) -> Vec<u8>
 where
     F: RichField + Extendable<D>,
     C: GenericConfig<D, F = F>,
