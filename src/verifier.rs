@@ -9,7 +9,7 @@ use starky::{
 
 use crate::deserializer::{deserialize_proof, deserialize_public_inputs, DeserializeError};
 
-pub fn verify_starky_proof(proof: Vec<u8>, pubs: Vec<u8>) -> Result<(), DeserializeError> {
+pub fn verify_starky_proof(proof: &Vec<u8>, pubs: &Vec<u8>) -> Result<(), DeserializeError> {
     const D: usize = 2;
     type C = PoseidonGoldilocksConfig;
     type F = <C as GenericConfig<D>>::F;

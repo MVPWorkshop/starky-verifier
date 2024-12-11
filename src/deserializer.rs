@@ -29,17 +29,17 @@ where
 }
 
 pub(crate) fn deserialize_proof<F, C, const D: usize>(
-    proof_bytes: Vec<u8>,
+    proof_bytes: &Vec<u8>,
 ) -> Result<StarkProof<F, C, D>, DeserializeError>
 where
     F: RichField + Extendable<D>,
     C: GenericConfig<D, F = F>,
 {
-    postcard::from_bytes(&proof_bytes).map_err(|_| DeserializeError::InvalidProof)
+    postcard::from_bytes(proof_bytes).map_err(|_| DeserializeError::InvalidProof)
 }
 
 pub(crate) fn deserialize_public_inputs(
-    pubs: Vec<u8>,
+    pubs: &Vec<u8>,
 ) -> Result<Vec<GoldilocksField>, DeserializeError> {
-    postcard::from_bytes(&pubs).map_err(|_| DeserializeError::InvalidPubs)
+    postcard::from_bytes(pubs).map_err(|_| DeserializeError::InvalidPubs)
 }

@@ -23,7 +23,7 @@ mod tests {
         let proof_bytes = handle_proof::<F, C, D>();
         let pubs_bytes = handle_pubs();
 
-        verify_starky_proof(proof_bytes, pubs_bytes).unwrap();
+        verify_starky_proof(&proof_bytes, &pubs_bytes).unwrap();
     }
 
     // ! Helper functions
@@ -54,7 +54,7 @@ mod tests {
 
         // ! Just a check that it is in right format and it can be deserialized
         // let deserialized_value_proof =
-        deserializer::deserialize_proof::<F, C, D>(bytes_from_file_proof.clone()).unwrap();
+        deserializer::deserialize_proof::<F, C, D>(&bytes_from_file_proof).unwrap();
 
         bytes_from_file_proof
     }
@@ -82,7 +82,7 @@ mod tests {
 
         // ! Just a check that it is in right format and it can be deserialized
         // let deserialized_value_pubs =
-        deserializer::deserialize_public_inputs(bytes_from_file_pubs.clone()).unwrap();
+        deserializer::deserialize_public_inputs(&bytes_from_file_pubs).unwrap();
         // println!("{:?}", deserialized_value_pubs);
         bytes_from_file_pubs
     }
